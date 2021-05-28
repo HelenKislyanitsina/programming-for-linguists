@@ -6,7 +6,7 @@ Tests for the Stack class.
 
 import unittest
 
-from data_structures.stack.stack import Stack
+from stack import Stack  # почему-то с первоначальным ннаписание data_structures.stack.stack у меня не получилось запустить тесты
 
 
 @unittest.skip('Stack is not implemented yet')

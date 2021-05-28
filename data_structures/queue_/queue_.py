@@ -14,10 +14,9 @@ class Queue_:
     """
 
     # pylint: disable=unused-argument,missing-module-docstring
-    def __init__(self, data: Iterable = (), max_size: int = None):
-        self.data = []
-        for element in data:
-            self.data.insert(0, element)
+    def __init__(self, data: Iterable = (), max_size: int = None, priority: Iterable = ()):
+        self.data = zip(data, priority)
+        self.data = list(sorted(self.data, key=lambda x: x[1]))  # кривая реализация очереди с приоритетом
 
     def put(self, element):
         """

@@ -6,7 +6,7 @@ Tests for Queue class.
 
 import unittest
 
-from data_structures.queue_.queue_ import Queue_
+from queue_ import Queue_  # почему-то с первоначальным ннаписание data_structures.queue_.queue_ у меня не получилось запустить тесты
 
 
 @unittest.skip('Queue is not implemented yet')
