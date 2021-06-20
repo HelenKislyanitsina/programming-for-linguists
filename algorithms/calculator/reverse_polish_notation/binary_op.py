@@ -43,9 +43,21 @@ class Plus(BinaryOp):
     """
     Implementation of operator +
     """
+    priority = 0
+    symbol = '+'
 
+    @staticmethod
+    def _function(first_element: Digit, second_element: Digit) -> float:
+        return first_element + second_element
 
 class Minus(BinaryOp):
+
+    priority = 0
+    symbol = '-'
+
+    @staticmethod
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element - second_element
     """
     Implementation of operator -
     """
@@ -55,15 +67,31 @@ class Multiplier(BinaryOp):
     """
     Implementation of operator *
     """
+    priority = 1
+    symbol = '*'
 
+    @staticmethod
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element * second_element
 
 class Divider(BinaryOp):
     """
     Implementation of operator /
     """
+    priority = 1
+    symbol = '/'
 
+    @staticmethod
+    def _function(first_element: float, second_element: float) -> float:
+        return first_element / second_element
 
 class Power(BinaryOp):
     """
     Implementation of operator ^
     """
+    priority = 2
+    symbol = '*'
+
+    @staticmethod
+    def _function(first_element: float, second_element: float) -> float:
+        return second_element ** first_element

@@ -22,3 +22,17 @@ class ReversePolishNotationCalculator:
         :param rpn_expression: expression in Reverse Polish Notation Format
         :return: result of the expression
         """
+        for element in rpn_expression:
+            if isinstance(element, Op):
+                result = self.calculate_result()
+                self.stack.top()
+            else:
+                self.stack.top()
+        return self.stack.top()
+
+    def calculate_result(self, operator: Op):
+        first_s = self.stack.top()
+        self.stack.pop()
+        second_s = self.stack.top()
+        self.stack.pop()
+        return operator.function(first_s, second_s)

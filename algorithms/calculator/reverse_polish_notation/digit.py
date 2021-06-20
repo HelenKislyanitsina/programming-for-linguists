@@ -14,8 +14,8 @@ class Digit(Element):
     """
 
     def __init__(self, digit_as_string: Union[float, str]):
-        print(digit_as_string)
-        self.digit = None
+
+        self.digit = float(digit_as_string)
 
     def __str__(self) -> str:
         """
