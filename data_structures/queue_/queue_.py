@@ -14,8 +14,10 @@ class Queue_:
     """
 
     # pylint: disable=unused-argument,missing-module-docstring
-    def __init__(self, max_size:int, data: Iterable = ()):
+    def __init__(self, data: Iterable = ()):
         self.data = []
+        for element in data:
+            self.data.insert(0, element)
 
     def put(self, element):
         """
@@ -68,33 +70,4 @@ class Queue_:
         :return: Maximal size of queue_
         """
         return 0
-
-
-class PriorityQueue:
-    def __init__(self, data, max_size=int, max_priority=int):
-        self.data = []
-        self.max_priority = max_priority
-        for i in range(0, max_priority):
-            self.data.append([])
-
-    def put(self, element, priority):
-        if priority <= self.max_priority:
-            self.data[priority].append(element)
-
-    def get(self):
-        new_data = []
-        for i in self.data:
-            if i:
-                new_data.append(i)
-        self.data = new_data
-        return self.data.pop(0)
-
-if __name__ == "__main__":
-    query = PriorityQueue(data=[], max_priority=5)
-    query.put('green', 4)
-    query.put('blue', 3)
-    query.put('black', 0)
-    query.put('yellow', 4)
-    while query:
-        print(query.get())
 

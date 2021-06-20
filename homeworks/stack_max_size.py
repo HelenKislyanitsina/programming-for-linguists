@@ -12,7 +12,8 @@ class Stack:
     Stack Data Structure
     """
     # pylint: disable=missing-module-docstring
-    def __init__(self, data: Iterable = None):
+    def __init__(self, max_size: int, data: Iterable = None):
+        self.max_size = max_size
         self.data = list(data) if data else []
 
     def push(self, element):
@@ -20,7 +21,10 @@ class Stack:
         Add the element ‘element’ at the top of stack
         :param element: element to add to stack
         """
-        self.data.append(element)
+        if len(self.data) < self.max_size:
+            self.data.append(element)
+        else:
+            raise IndexError('Max size of stack has been reached ')
 
     def pop(self):
         """
